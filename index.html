@@ -1,293 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#092d57">
-<title>Motor Técnico Profesional | MetLife · v0.9 RC</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#092d57">
+<title>MetLife | Proyección de ahorro</title>
 <style>
-:root{--navy:#092d57;--blue:#0077c8;--cyan:#43c5d9;--ink:#172b4d;--muted:#66758a;--bg:#f3f6fa;--line:#dce4ed;--white:#fff;--green:#147d64;--amber:#a45b00;--shadow:0 8px 28px #0a2b5010}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink)}header{background:linear-gradient(120deg,#092d57,#075b93);color:white;padding:24px clamp(16px,4vw,44px) 20px}header .eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#9fe5f0;font-weight:800}h1{font-size:clamp(24px,4vw,36px);margin:8px 0}header p{margin:0;color:#d6e8f7;max-width:760px;font-size:14px;line-height:1.5}.wrap{max-width:1250px;margin:auto;padding:18px clamp(12px,3vw,30px) 36px}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}.tab{border:1px solid var(--line);background:#fff;color:var(--navy);padding:12px 16px;border-radius:12px;font-weight:750;cursor:pointer}.tab.active{background:var(--navy);color:white;border-color:var(--navy)}.layout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:16px}.card{background:white;border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--shadow);min-width:0}.card h2{font-size:19px;margin:0 0 5px}.sub{font-size:12px;color:var(--muted);line-height:1.5;margin:0 0 17px}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.field{min-width:0}.field.full{grid-column:1/-1}label{display:block;font-size:12px;font-weight:750;color:#40516a;margin-bottom:6px}input,select{width:100%;padding:11px 10px;border:1px solid #ccd7e4;border-radius:10px;background:#fff;color:var(--ink);font:inherit;font-size:14px;min-width:0}input:focus,select:focus{outline:2px solid #9bddec;border-color:var(--blue)}.help{font-size:11px;color:var(--muted);margin-top:5px}.btnrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:750;cursor:pointer;background:var(--navy);color:#fff}.btn.secondary{background:#e8f2fa;color:var(--navy);border:1px solid #c8ddeb}.btn.ghost{background:#fff;color:var(--muted);border:1px solid var(--line)}.kpis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:16px}.kpi{padding:15px;border:1px solid var(--line);border-radius:14px;background:#fbfdff;min-width:0}.kpi .label{font-size:11px;color:var(--muted);font-weight:700}.kpi .value{font-size:clamp(18px,2.4vw,26px);font-weight:850;color:var(--navy);margin-top:6px;overflow-wrap:anywhere}.kpi .note{font-size:11px;color:var(--muted);margin-top:4px}.section-title{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:850;margin:18px 0 10px}.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}table{width:100%;border-collapse:collapse;font-size:12px;min-width:520px}th,td{text-align:right;padding:10px 11px;border-bottom:1px solid #edf1f5;white-space:nowrap}th{background:#f4f8fb;color:#52627a;font-size:11px}th:first-child,td:first-child{text-align:left}tr:last-child td{border-bottom:0}.barlist{display:grid;gap:12px}.barrow{display:grid;grid-template-columns:105px 1fr auto;gap:10px;align-items:center;font-size:12px}.barbg{height:10px;background:#e9eff5;border-radius:99px;overflow:hidden}.bar{height:100%;background:linear-gradient(90deg,var(--blue),var(--cyan));border-radius:99px}.note-box{background:#f0f8fb;border-left:3px solid var(--cyan);padding:12px 13px;border-radius:8px;font-size:12px;line-height:1.55;color:#35506a;margin-top:14px}.warning{background:#fff7e8;border-left-color:#e6a23c;color:#72501d}.hidden{display:none!important}.smallprint{font-size:11px;line-height:1.55;color:var(--muted);margin-top:16px}.tag{display:inline-block;background:#eaf7f4;color:var(--green);border-radius:99px;padding:5px 8px;font-size:10px;font-weight:800;letter-spacing:.05em}.product-inputs{border:1px solid var(--line);padding:13px;border-radius:13px;margin-bottom:10px}.product-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px}.product-head strong{font-size:13px}.product-head input{max-width:190px}.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.chart{width:100%;height:210px;display:block}.foot{padding:12px 0 0;font-size:11px;color:#8290a2;text-align:center}
-@media(max-width:850px){.layout{grid-template-columns:1fr}.card{padding:16px}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.three{grid-template-columns:1fr 1fr}}
-@media(max-width:480px){header{padding:20px 16px}.wrap{padding:12px 10px 25px}.fields{gap:10px}.field.full{grid-column:1/-1}.card{border-radius:14px;padding:14px}.tab{flex:1;padding:11px 9px;font-size:12px}.kpi{padding:12px}.kpi .value{font-size:20px}.three{grid-template-columns:1fr 1fr}.barrow{grid-template-columns:82px 1fr auto;gap:7px}.btn{flex:1}}
+:root{--navy:#092d57;--blue:#0878bd;--cyan:#42c5d9;--ink:#142b49;--muted:#65758a;--line:#dce5ef;--bg:#eef3f8;--green:#147d64}*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink)}header{background:linear-gradient(135deg,#092d57,#075b93);color:#fff;padding:22px 18px 20px}header .eyebrow{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#a5e8f1;font-weight:800}h1{font-size:25px;line-height:1.12;margin:9px 0}header p{font-size:13px;line-height:1.45;color:#e0edf8;margin:0}.wrap{max-width:680px;margin:auto;padding:14px 12px 30px}.panel,.result{background:#fff;border:1px solid var(--line);border-radius:17px;padding:16px;box-shadow:0 5px 20px #092d570c;margin-bottom:13px}.panel h2{font-size:17px;margin:0 0 4px}.hint{font-size:12px;color:var(--muted);line-height:1.45;margin:0 0 14px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:11px}.field{min-width:0}.full{grid-column:1/-1}label{font-size:11px;font-weight:800;display:block;margin-bottom:5px;color:#43556d}input,select{width:100%;min-width:0;border:1px solid #cbd7e5;border-radius:10px;background:#fff;padding:12px 10px;font:inherit;font-size:15px;color:var(--ink)}.helper{font-size:10px;color:var(--muted);line-height:1.35;margin-top:4px}.btn{border:0;border-radius:11px;background:var(--navy);color:white;font-weight:800;font-size:15px;padding:14px;width:100%;margin-top:14px}.btn.secondary{background:#e8f2fa;color:var(--navy);border:1px solid #c7dce9;margin-top:8px}.result{padding:0;overflow:hidden}.result-head{background:#f5f9fc;padding:17px;border-bottom:1px solid var(--line)}.brand{font-size:10px;letter-spacing:.13em;font-weight:900;color:var(--blue)}.result h2{font-size:21px;line-height:1.2;margin:8px 0 4px}.clientline{font-size:12px;color:var(--muted)}.producttag{display:inline-block;background:#e8f7f5;color:#126b5a;border-radius:30px;padding:6px 9px;font-size:10px;font-weight:850;margin-top:10px}.hero{padding:18px 17px 16px;background:linear-gradient(135deg,#092d57,#075b93);color:#fff}.hero .label{font-size:12px;color:#d9eaf8;font-weight:650}.hero .amount{font-size:clamp(30px,8vw,43px);font-weight:900;letter-spacing:-.04em;line-height:1.12;margin:7px 0}.hero .sub{font-size:12px;color:#d9eaf8;line-height:1.4}.stats{display:grid;grid-template-columns:1fr 1fr;gap:9px;padding:13px}.stat{border:1px solid var(--line);border-radius:12px;padding:12px;min-width:0}.stat .slabel{font-size:10px;color:var(--muted);font-weight:800;line-height:1.3}.stat .svalue{font-size:clamp(17px,4.5vw,22px);font-weight:900;color:var(--navy);margin-top:6px;overflow-wrap:anywhere}.stat .snote{font-size:10px;color:var(--muted);margin-top:4px;line-height:1.35}.detail{padding:0 14px 14px}.detailrow{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid #edf1f5;font-size:12px}.detailrow span:first-child{color:var(--muted)}.detailrow strong{text-align:right}.disclaimer{margin:0 14px 14px;padding:11px;border-radius:10px;background:#fff7e8;color:#71501c;font-size:10px;line-height:1.45}.foot{text-align:center;color:var(--muted);font-size:10px;line-height:1.45;padding:0 10px 10px}.hidden{display:none!important}.result-ready{outline:2px solid #b9e7df;outline-offset:2px}
+@media(max-width:390px){.wrap{padding:10px 8px 24px}.panel{padding:13px}.fields{gap:9px}.stats{padding:10px;gap:7px}.stat{padding:10px}.result-head{padding:14px}}
+@media print{body{background:#fff}.no-print,header,.panel{display:none!important}.wrap{padding:0;max-width:none}.result{box-shadow:none;border:1px solid #dce5ef;break-inside:avoid}.result-ready{outline:none}.foot{padding-top:8px}}
 </style>
-</head>
-<body>
-<header>
-  <div class="eyebrow">Motor Técnico Profesional · Prototipo 08</div>
-  <h1>Decisiones de inversión y jubilación, con números claros.</h1>
-  <p>Herramienta de simulación para comparar alternativas de ahorro y proyectar APV al momento de pensionarse. Funciona en computador y celular. Puedes cambiar rentabilidad e inflación para explorar escenarios; los resultados se actualizan automáticamente en cada módulo.</p>
-</header>
-<div class="wrap">
-  <nav class="tabs" aria-label="Módulos">
-    <button class="tab active" data-tab="comparador">Comparador de inversiones</button>
-    <button class="tab" data-tab="apv">Proyector APV jubilación</button>
-    <button class="tab" data-tab="previsional">Proyección previsional ADN</button>
-    <button class="tab" data-tab="costos">Costos APV MetLife</button>
-    <button class="tab" data-tab="vistaCliente">Apoyo visual cliente</button>
-  </nav>
-  <section id="comparador">
-    <div class="layout">
-      <div class="card">
-        <h2>Configura la comparación</h2><p class="sub">Cambia la inflación y la rentabilidad de cada alternativa. Los resultados se recalculan al modificar los valores; las rentabilidades son supuestos, no promesas.</p>
-        <div class="fields">
-          <div class="field"><label for="capital">Capital inicial ($)</label><input id="capital" type="number" min="0" step="100000" value="10000000"></div>
-          <div class="field"><label for="aporte">Aporte mensual ($)</label><input id="aporte" type="number" min="0" step="10000" value="200000"></div>
-          <div class="field"><label for="anios">Horizonte (años)</label><input id="anios" type="number" min="1" max="60" value="10"></div>
-          <div class="field"><label for="ipc">Inflación anual supuesta (%)</label><input id="ipc" type="number" min="-5" max="30" step="0.1" value="3"></div>
-        </div>
-        <div class="section-title">Alternativas de inversión</div>
-        <div id="products"></div>
-        <div class="btnrow"><button class="btn secondary" id="addProduct">+ Agregar alternativa</button><button class="btn" id="runCompare">Calcular comparación</button></div>
-        <p class="smallprint">Costos ingresados como porcentaje anual aproximado sobre el saldo. El modelo descuenta ese costo de la tasa anual supuesta; no incorpora impuestos, rescates, primas de seguros ni reglas contractuales específicas.</p>
-      </div>
-      <div class="card">
-        <h2>Resultado comparativo</h2><p class="sub">Capital proyectado nominal y en pesos de hoy.</p>
-        <div class="kpis">
-          <div class="kpi"><div class="label">Mayor saldo final estimado</div><div class="value" id="bestValue">—</div><div class="note" id="bestName">Calcula para comparar</div></div>
-          <div class="kpi"><div class="label">Aportes totales</div><div class="value" id="totalContrib">—</div><div class="note">Capital inicial + aportes mensuales</div></div>
-        </div>
-        <div class="section-title">Saldo real estimado</div><div id="bars" class="barlist"></div>
-        <div class="section-title">Detalle por alternativa</div>
-        <div class="table-wrap"><table><thead><tr><th>Alternativa</th><th>Rent. neta</th><th>Saldo nominal</th><th>Saldo real</th><th>Ganancia nominal</th></tr></thead><tbody id="compareRows"></tbody></table></div>
-        <div class="note-box" id="compareInsight">Los resultados aparecerán aquí.</div>
-      </div>
-    </div>
-  </section>
-  <section id="apv" class="hidden">
-    <div class="layout">
-      <div class="card">
-        <h2>Datos previsionales</h2><p class="sub">Modifica la rentabilidad anual, el costo y la inflación para comparar escenarios APV. Los resultados se actualizan automáticamente.</p>
-        <div class="fields">
-          <div class="field"><label for="edad">Edad actual</label><input id="edad" type="number" min="18" max="100" value="46"></div>
-          <div class="field"><label for="edadJub">Edad de jubilación objetivo</label><input id="edadJub" type="number" min="19" max="100" value="65"></div>
-          <div class="field"><label for="saldoAPV">Saldo APV actual ($)</label><input id="saldoAPV" type="number" min="0" step="100000" value="7000000"></div>
-          <div class="field"><label for="aporteAPV">Aporte mensual APV ($)</label><input id="aporteAPV" type="number" min="0" step="10000" value="100000"></div>
-          <div class="field"><label for="retornoAPV">Rentabilidad anual supuesta (%)</label><input id="retornoAPV" type="number" min="-20" max="30" step="0.1" value="5"></div>
-          <div class="field"><label for="costoAPV">Costo anual total (%)</label><input id="costoAPV" type="number" min="0" max="10" step="0.1" value="0.7"></div>
-          <div class="field"><label for="inflacionAPV">Inflación anual (%)</label><input id="inflacionAPV" type="number" min="-5" max="30" step="0.1" value="3"></div>
-          <div class="field"><label for="regimen">Régimen APV</label><select id="regimen"><option value="A">Régimen A · bonificación referencial</option><option value="B">Régimen B · posible rebaja de base imponible</option><option value="ninguno">Sin beneficio tributario modelado</option></select></div>
-          <div class="field"><label for="bonif">Bonificación A (%)</label><input id="bonif" type="number" min="0" max="15" step="0.5" value="15"></div>
-          <div class="field"><label for="topeBonif">Tope anual bonificación A ($)</label><input id="topeBonif" type="number" min="0" step="10000" value="306000"></div>
-          <div class="field"><label for="tasaMarginal">Tasa marginal de impuesto estimada (%)</label><input id="tasaMarginal" type="number" min="0" max="40" step="1" value="23"></div>
-          <div class="field"><label for="ufAPV">Valor UF ($)</label><input id="ufAPV" type="number" min="1" step="1" value="40927"></div>
-          <div class="field"><label for="utmAPV">Valor UTM ($)</label><input id="utmAPV" type="number" min="1" step="1" value="72151"></div>
-          <div class="field"><label for="aniosRetiro">Años de retiro estimado</label><input id="aniosRetiro" type="number" min="1" max="50" value="25"></div>
-          <div class="field"><label for="retornoRetiro">Rentabilidad anual durante retiro (%)</label><input id="retornoRetiro" type="number" min="-20" max="20" step="0.1" value="2"></div>
-        </div>
-        <div class="btnrow"><button class="btn" id="runAPV">Calcular proyección APV</button><button class="btn secondary" id="saveAPV">Guardar escenario en este dispositivo</button><button class="btn ghost" id="exportAPV">Exportar resumen CSV</button></div>
-        <div class="smallprint">El Régimen A usa una bonificación estimada del porcentaje ingresado, limitada a 6 UTM anuales. El Régimen B estima el ahorro tributario con la tasa marginal ingresada y un límite de aportes de 600 UF anuales. Son aproximaciones parametrizadas: no sustituyen la liquidación tributaria ni validan por sí solas los requisitos legales vigentes.</div>
-      </div>
-      <div class="card">
-        <h2>Tu proyección</h2><p class="sub">Cifras nominales y equivalentes en poder adquisitivo de hoy.</p>
-        <div class="kpis">
-          <div class="kpi"><div class="label">Saldo al jubilarse</div><div class="value" id="apvFinal">—</div><div class="note" id="apvYears">—</div></div>
-          <div class="kpi"><div class="label">Saldo en pesos de hoy</div><div class="value" id="apvReal">—</div><div class="note">Ajustado por inflación supuesta</div></div>
-          <div class="kpi"><div class="label">Aportes propios acumulados</div><div class="value" id="apvAportes">—</div><div class="note">Saldo actual + aportes futuros</div></div>
-          <div class="kpi"><div class="label">Retiro mensual referencial</div><div class="value" id="pensionMensual">—</div><div class="note" id="pensionReal">—</div></div>
-        </div>
-        <div class="section-title">Composición del saldo proyectado</div><div id="apvBars" class="barlist"></div>
-        <div class="section-title">Resumen del escenario</div>
-        <div class="table-wrap"><table><tbody id="apvTable"></tbody></table></div>
-        <div class="note-box warning">No es una cotización ni una estimación oficial de pensión. El retiro mensual es una anualidad matemática simplificada, no una pensión AFP: no incorpora tablas de mortalidad, beneficiarios, modalidad de pensión, comisiones, impuestos al retiro ni reglas regulatorias.</div>
-      </div>
-    </div>
-  </section>
-<section id="previsional" class="hidden">
- <div class="layout">
-  <div class="card">
-   <h2>Modelo previsional ADN</h2><p class="sub">Integra las tablas FACTOR 1, FACTOR 2 y FACTOR 3 del archivo APV ADN.xlsx. La fórmula heredada se reproduce para contrastar escenarios; no es una pensión oficial.</p>
-   <div class="fields">
-    <div class="field"><label for="adnEdad">Edad actual</label><input id="adnEdad" type="number" min="18" max="100" value="46"></div>
-    <div class="field"><label for="adnRetiro">Edad objetivo de pensión</label><select id="adnRetiro"><option>50</option><option>55</option><option>60</option><option selected>65</option><option>70</option><option>75</option></select></div>
-    <div class="field"><label for="adnSexo">Categoría del factor 3</label><select id="adnSexo"><option value="1">Hombre</option><option value="2">Hombre con cónyuge</option><option value="3">Mujer</option><option value="4">Mujer con cónyuge</option></select></div>
-    <div class="field"><label for="adnPerfil">Perfil de inversión</label><select id="adnPerfil"><option value="1">Muy arriesgado</option><option value="2" selected>Moderado</option><option value="3">Muy conservador</option></select></div>
-    <div class="field"><label for="adnUF">Valor UF ($)</label><input id="adnUF" type="number" min="1" value="41000"></div>
-    <div class="field"><label for="adnRenta">Renta líquida mensual ($)</label><input id="adnRenta" type="number" min="0" step="50000" value="1800000"></div>
-    <div class="field"><label for="adnAFP">Saldo obligatorio AFP ($)</label><input id="adnAFP" type="number" min="0" step="100000" value="12000000"></div>
-    <div class="field"><label for="adnAPV">Saldo APV + depósito convenido ($)</label><input id="adnAPV" type="number" min="0" step="100000" value="7000000"></div>
-    <div class="field"><label for="adnDeseada">Pensión mensual deseada ($)</label><input id="adnDeseada" type="number" min="0" step="50000" value="1500000"></div>
-   </div>
-   <div class="btnrow"><button class="btn" id="runADN">Calcular modelo ADN</button><button class="btn secondary" id="exportADN">Exportar resultado CSV</button></div>
-   <div class="note-box warning">Trazabilidad: tablas transcritas desde APV ADN.xlsx, hoja FACTORES. Se usan coincidencias exactas de años y edad objetivo; no se interpola ni extrapola. La hoja original contiene una discontinuidad en Factor 2 entre los años 40 y 41 (2.470 baja a 2.323) y otros saltos; esos datos se conservan sin corregir silenciosamente.</div>
-  </div>
-  <div class="card">
-   <h2>Resultado del modelo heredado</h2><p class="sub">Permite contrastar los resultados de la planilla original con entradas modificadas.</p>
-   <div class="kpis">
-    <div class="kpi"><div class="label">Pensión mensual modelada</div><div class="value" id="adnPension">—</div><div class="note">Resultado según factores ADN</div></div>
-    <div class="kpi"><div class="label">Brecha a pensión deseada</div><div class="value" id="adnBrecha">—</div><div class="note">Si es negativa, supera la meta</div></div>
-    <div class="kpi"><div class="label">Aporte mensual estimado para cubrir brecha</div><div class="value" id="adnAporte">—</div><div class="note">Cálculo basado en factores 2 y 3</div></div>
-    <div class="kpi"><div class="label">Años hasta la jubilación</div><div class="value" id="adnAnios">—</div><div class="note">Factor 1 y 2 requieren años enteros de tabla</div></div>
-   </div>
-   <div class="section-title">Detalle de factores aplicados</div>
-   <div class="table-wrap"><table><thead><tr><th>Elemento</th><th>Valor aplicado</th><th>Origen</th></tr></thead><tbody id="adnDetalle"></tbody></table></div>
-   <div class="note-box" id="adnAviso">Ingresa los datos y calcula.</div>
-  </div>
- </div>
+</head><body>
+<header><div class="eyebrow">MetLife · Proyección ilustrativa</div><h1>Un plan de ahorro para lo que viene.</h1><p>Configura un escenario VUL o APV y prepara una ficha clara para conversar con tu cliente.</p></header>
+<main class="wrap">
+<section class="panel no-print"><h2>Datos para la proyección</h2><p class="hint">Completa los datos y pulsa Calcular. La ficha de abajo queda lista para capturar y compartir por WhatsApp.</p>
+<div class="fields">
+<div class="field full"><label for="nombre">Nombre del cliente (opcional)</label><input id="nombre" maxlength="60" placeholder="Nombre del cliente"></div>
+<div class="field full"><label for="producto">Producto MetLife</label><select id="producto"><option value="APV">APV Vida y Jubilación Protegida · SVT-172</option><option value="VUL Integral">Protección Integral · Vida, Salud y Ahorro (VUL) · SVT-191</option><option value="VUL Flexible">Seguro de vida con ahorro · VUL Flexible</option></select></div>
+<div class="field"><label for="edad">Edad actual</label><input id="edad" type="number" min="18" max="100" value="40"></div>
+<div class="field"><label for="plazo">Plazo (años)</label><input id="plazo" type="number" min="1" max="60" value="20"></div>
+<div class="field"><label for="prima">Prima básica mensual (UF)</label><input id="prima" type="number" min="0" step="0.01" value="1.04"><div class="helper">Dato de la póliza; no equivale al aporte total.</div></div>
+<div class="field"><label for="capitalUF">Capital asegurado (UF)</label><input id="capitalUF" type="number" min="0" step="50" value="2000"></div>
+<div class="field"><label for="aporte">Pago total mensual ($)</label><input id="aporte" type="number" min="0" step="10000" value="150000"></div>
+<div class="field"><label for="inicial">Capital inicial ($)</label><input id="inicial" type="number" min="0" step="100000" value="0"></div>
+<div class="field"><label for="rent">Rentabilidad anual supuesta (%)</label><input id="rent" type="number" min="-20" max="30" step="0.1" value="5"></div>
+<div class="field"><label for="inflacion">Inflación anual (%)</label><input id="inflacion" type="number" min="0" max="30" step="0.1" value="3"></div>
+<div class="field"><label for="costo">Costo anual estimado (%)</label><input id="costo" type="number" min="0" max="20" step="0.1" value="0.7"><div class="helper">Supuesto orientativo; validar con cotización oficial.</div></div>
+<div class="field"><label for="uf">Valor UF ($)</label><input id="uf" type="number" min="1" step="1" value="41000"></div>
+</div><button class="btn" id="calcular">Calcular proyección</button><button class="btn secondary" id="captura">Dejar ficha lista para captura</button>
 </section>
-  <div class="foot">Motor Técnico Profesional · Prototipo local · Versión 0.6 · No reemplaza asesoría previsional, tributaria ni contractual.</div>
+<section class="result" id="ficha" aria-live="polite">
+<div class="result-head"><div class="brand">METLIFE · PLANIFICACIÓN FINANCIERA</div><h2 id="titulo">Proyección de ahorro personalizada</h2><div class="clientline" id="linea">Escenario ilustrativo · plazo editable</div><span class="producttag" id="tag">APV · VIDA Y JUBILACIÓN PROTEGIDA</span></div>
+<div class="hero"><div class="label">Capital final estimado</div><div class="amount" id="final">—</div><div class="sub" id="finalSub">Proyección al término del plazo indicado, bajo los supuestos seleccionados.</div></div>
+<div class="stats">
+<div class="stat"><div class="slabel">Equivalente en dinero de hoy</div><div class="svalue" id="real">—</div><div class="snote">Ajustado por inflación supuesta</div></div>
+<div class="stat"><div class="slabel">Aportes totales estimados</div><div class="svalue" id="aportes">—</div><div class="snote">Capital inicial + pagos mensuales</div></div>
+<div class="stat"><div class="slabel">Crecimiento estimado</div><div class="svalue" id="ganancia">—</div><div class="snote">Saldo final menos aportes propios</div></div>
+<div class="stat"><div class="slabel">Ahorro mensual considerado</div><div class="svalue" id="pago">—</div><div class="snote">Pago total informado por el asesor</div></div>
 </div>
-<section id="costos" class="hidden">
-  <div class="layout">
-    <div class="card">
-      <h2>Costos de cobertura y ahorro</h2>
-      <p class="sub">Calcula un escenario mensual de cobertura por fallecimiento usando la tabla CC_Fall. La fórmula general de la Ficha Técnica APV indica Capital Asegurado en Riesgo × Tasa de Costo de Cobertura / 1.000. Los demás cargos se ingresan manualmente según la póliza vigente.</p>
-      <div class="fields">
-        <div class="field"><label for="cEdad">Edad del asegurado</label><input id="cEdad" type="number" min="18" max="100" value="46"></div>
-        <div class="field"><label for="cSexo">Sexo usado por la tabla fuente</label><select id="cSexo"><option value="0">Hombre</option><option value="1">Mujer</option></select></div>
-        <div class="field full"><label for="cProducto">Producto / tabla de cobertura</label><select id="cProducto"><option value="0">APV Nuevo</option><option value="1">VUL Flexible</option><option value="2">VUL Integral</option><option value="3">Executive APV o VUL</option><option value="4">Premium APV o VUL</option></select></div>
-        <div class="field"><label for="cCapital">Capital asegurado en riesgo (UF)</label><input id="cCapital" type="number" min="0" step="10" value="2000"></div>
-        <div class="field"><label for="cUF">Valor UF ($)</label><input id="cUF" type="number" min="1" step="1" value="40213"></div>
-        <div class="field"><label for="cPrima">Pago mensual del cliente ($)</label><input id="cPrima" type="number" min="0" step="10000" value="200000"></div>
-        <div class="field"><label for="cAdm">Administración mensual (UF)</label><input id="cAdm" type="number" min="0" step="0.01" value="0"></div>
-        <div class="field"><label for="cCargo">Otros cargos mensuales ($)</label><input id="cCargo" type="number" min="0" step="1000" value="0"></div>
-        <div class="field"><label for="cPrimaCoste">Costo sobre prima mensual (%)</label><input id="cPrimaCoste" type="number" min="0" max="100" step="0.1" value="0"></div>
-      </div>
-      <div class="btnrow"><button class="btn" id="runCostos">Calcular costos</button><button class="btn secondary" id="exportCostos">Exportar CSV</button></div>
-      <div class="note-box warning"><strong>Validación pendiente del tarifario:</strong> la tabla fuente se titula “Costo cobertura o/oo” y “Frecuencia: Mensual”, por lo que el motor calcula capital × tasa / 1.000. Sin embargo, el ejemplo de la misma hoja (capital 2.000; tasa 0,270914) muestra resultado 541,828, luego anualizado 5,42 y mensual 0,45 UF, equivalente a unos $18.157. Aplicando literalmente la tasa mensual por mil al capital 2.000 se obtienen 0,541828 unidades mensuales, no 0,45. Existe una discrepancia que debe aclararse antes de uso comercial. Los valores de UF y cargos son editables; no se incorpora una tarifa comercial completa ni se valida vigencia contractual.</div>
-    </div>
-    <div class="card">
-      <h2>Resultado mensual estimado</h2><p class="sub">Desglose del pago ingresado y del monto que quedaría antes de otros cargos no modelados.</p>
-      <div class="kpis">
-        <div class="kpi"><div class="label">Costo cobertura</div><div class="value" id="cOutCobertura">—</div><div class="note" id="cOutTasa">Tasa fuente</div></div>
-        <div class="kpi"><div class="label">Costo total modelado</div><div class="value" id="cOutTotal">—</div><div class="note">Cobertura + administración + otros cargos</div></div>
-        <div class="kpi"><div class="label">Monto para ahorro estimado</div><div class="value" id="cOutAhorro">—</div><div class="note">Pago mensual menos costos modelados</div></div>
-        <div class="kpi"><div class="label">Porcentaje del pago a ahorro</div><div class="value" id="cOutPct">—</div><div class="note">Antes de cargos no incluidos</div></div>
-      </div>
-      <div class="section-title">Detalle de cargos</div>
-      <div class="table-wrap"><table><thead><tr><th>Concepto</th><th>Valor mensual</th><th>Origen</th></tr></thead><tbody id="cRows"></tbody></table></div>
-      <div class="note-box" id="cAviso">Ingresa los datos y calcula para ver el desglose.</div>
-      <p class="smallprint">Fuentes: “Ficha Técnica APV.pdf” (fórmula general CR × TC / 1.000 y definición de capital asegurado en riesgo) y “Copia de Costo APV.pdf” (tabla CC_Fall). La fórmula aplicada requiere capital asegurado en riesgo expresado en UF y valor UF para expresar el resultado en pesos. La tabla de tasas procede de un archivo de trabajo y el ejemplo de costos no concilia completamente: 2.000 × 0,270914 / 1.000 = 0,541828 UF, que a $40.213/UF son aproximadamente $21.789; el ejemplo informa $18.157. Diferencia pendiente de explicar por base de capital/tasa exacta. No usar como cotización oficial.</p>
-    </div>
-  </div>
+<div class="detail">
+<div class="detailrow"><span>Producto</span><strong id="detalleProducto">APV</strong></div>
+<div class="detailrow"><span>Plazo</span><strong id="detallePlazo">20 años</strong></div>
+<div class="detailrow"><span>Prima básica mensual</span><strong id="detallePrima">—</strong></div>
+<div class="detailrow"><span>Capital asegurado informado</span><strong id="detalleCapital">—</strong></div>
+<div class="detailrow"><span>Rentabilidad anual supuesta</span><strong id="detalleRent">—</strong></div>
+<div class="detailrow"><span>Inflación anual supuesta</span><strong id="detalleInflacion">—</strong></div>
+<div class="detailrow"><span>Costo anual usado en el escenario</span><strong id="detalleCosto">—</strong></div>
+</div>
+<div class="disclaimer">Simulación ilustrativa, no es cotización oficial ni garantía de rentabilidad o capital. El saldo real depende de la evolución de las inversiones, costos efectivos, cobertura, impuestos y condiciones de la póliza. Revisar siempre la propuesta oficial de MetLife.</div>
 </section>
-
-
-<section id="vistaCliente" class="hidden">
-  <div class="layout">
-    <div class="card">
-      <h2>Conversación de planificación con el cliente</h2>
-      <p class="sub">Usa esta vista durante una reunión para explicar escenarios de ahorro y poder adquisitivo. No reemplaza la cotización oficial de MetLife ni se presenta como documento contractual.</p>
-      <div class="fields">
-        <div class="field full"><label for="vcNombre">Nombre del cliente (opcional)</label><input id="vcNombre" maxlength="70" placeholder="Nombre del cliente"></div>
-        <div class="field full"><label for="vcObjetivo">Objetivo que quiere financiar</label><input id="vcObjetivo" maxlength="90" value="Construir un capital para el futuro"></div>
-        <div class="field"><label for="vcCapital">Capital inicial ($)</label><input id="vcCapital" type="number" min="0" step="100000" value="0"></div>
-        <div class="field"><label for="vcAporte">Ahorro mensual ($)</label><input id="vcAporte" type="number" min="0" step="10000" value="100000"></div>
-        <div class="field"><label for="vcAnios">Plazo (años)</label><input id="vcAnios" type="number" min="1" max="60" value="20"></div>
-        <div class="field"><label for="vcRent">Rentabilidad anual supuesta (%)</label><input id="vcRent" type="number" min="-20" max="30" step="0.1" value="5"></div>
-        <div class="field"><label for="vcInflacion">Inflación anual supuesta (%)</label><input id="vcInflacion" type="number" min="0" max="30" step="0.1" value="3"></div>
-        <div class="field"><label for="vcCosto">Costo anual estimado (%)</label><input id="vcCosto" type="number" min="0" max="20" step="0.1" value="0.7"></div>
-      </div>
-      <div class="btnrow"><button class="btn" id="vcCalcular">Actualizar escenario</button><button class="btn secondary" id="vcImprimir">Imprimir / mostrar en pantalla</button></div>
-      <div class="note-box warning">Escenario ilustrativo: la rentabilidad y la inflación son supuestos editables, no predicciones ni garantías. Los costos son estimativos. Las condiciones, coberturas, valores y beneficios contractuales son los que constan en la propuesta oficial emitida por MetLife.</div>
-    </div>
-    <div class="card" id="vcHoja">
-      <div class="tag">APOYO PARA CONVERSACIÓN · NO ES COTIZACIÓN</div>
-      <h2 id="vcTitulo" style="margin-top:12px">Tu objetivo, convertido en un plan</h2>
-      <p class="sub" id="vcSubtitulo">Exploremos qué podría ocurrir con distintos niveles de ahorro y supuestos.</p>
-      <div class="kpis">
-        <div class="kpi"><div class="label">Capital final estimado</div><div class="value" id="vcNominal">—</div><div class="note">Valor futuro nominal</div></div>
-        <div class="kpi"><div class="label">Equivalente en dinero de hoy</div><div class="value" id="vcReal">—</div><div class="note">Ajustado por inflación supuesta</div></div>
-        <div class="kpi"><div class="label">Aportes totales</div><div class="value" id="vcAportes">—</div><div class="note">Capital inicial + aportes mensuales</div></div>
-        <div class="kpi"><div class="label">Diferencia estimada por rentabilidad</div><div class="value" id="vcGanancia">—</div><div class="note">Antes de impuestos u otros efectos no modelados</div></div>
-      </div>
-      <div class="section-title">Cómo se construye el escenario</div>
-      <div id="vcBarras" class="barlist"></div>
-      <div class="note-box" id="vcLectura">Modifica los supuestos para comparar resultados.</div>
-      <p class="smallprint">Material de apoyo para conversación presencial. No es una propuesta formal, una cotización ni una recomendación automática. Antes de contratar, revisar la cotización y condiciones oficiales de MetLife.</p>
-    </div>
-  </div>
-</section>
-
+<div class="foot">Material de apoyo para conversación comercial. Valores estimados en pesos chilenos.</div>
+</main>
 <script>
-const $=id=>document.getElementById(id);
-const fmt=n=>new Intl.NumberFormat('es-CL',{style:'currency',currency:'CLP',maximumFractionDigits:0}).format(Number.isFinite(n)?n:0);
-const pct=n=>(n*100).toLocaleString('es-CL',{maximumFractionDigits:2})+'%';
-const num=id=>Math.max(0,Number($(id).value)||0);
-let products=[
- {name:'Depósito a plazo',rate:4.5,cost:0},
- {name:'Fondo mutuo / inversión',rate:7,cost:1.2},
- {name:'Alternativa APV / seguro',rate:5.5,cost:0.7}
-];
-function renderProducts(){ $('products').innerHTML=''; products.forEach((p,i)=>{let d=document.createElement('div');d.className='product-inputs';d.innerHTML=`<div class="product-head"><strong>Alternativa ${i+1}</strong><button class="btn ghost" type="button" data-remove="${i}" ${products.length<=2?'disabled':''}>Quitar</button></div><div class="fields"><div class="field full"><label>Nombre</label><input data-p="${i}" data-k="name" value="${esc(p.name)}" maxlength="50"></div><div class="field"><label>Rentabilidad anual supuesta (%)</label><input data-p="${i}" data-k="rate" type="number" min="-20" max="50" step=".1" value="${p.rate}"></div><div class="field"><label>Costo anual estimado (%)</label><input data-p="${i}" data-k="cost" type="number" min="0" max="20" step=".1" value="${p.cost}"></div></div>`;$('products').appendChild(d)});$('products').querySelectorAll('[data-p]').forEach(el=>el.addEventListener('input',()=>{products[+el.dataset.p][el.dataset.k]=el.dataset.k==='name'?el.value:Number(el.value)||0}));$('products').querySelectorAll('[data-remove]').forEach(el=>el.addEventListener('click',()=>{if(products.length>2){products.splice(+el.dataset.remove,1);renderProducts();calculateCompare()}}))}
-function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function future(initial,monthly,annual,years){let r=Math.pow(1+annual,1/12)-1,b=initial;for(let m=0;m<years*12;m++)b=b*(1+r)+monthly;return b}
-function calculateCompare(){let capital=num('capital'),aporte=num('aporte'),years=Math.min(60,Math.max(1,num('anios'))),infl=Number($('ipc').value||0)/100;let contributed=capital+aporte*years*12;let out=products.map(p=>{let net=(Number(p.rate)-Number(p.cost))/100;let balance=future(capital,aporte,net,years);return {...p,net,balance,real:balance/Math.pow(1+infl,years),gain:balance-contributed}}).sort((a,b)=>b.balance-a.balance);$('bestValue').textContent=fmt(out[0].balance);$('bestName').textContent=out[0].name+' · saldo nominal';$('totalContrib').textContent=fmt(contributed);$('compareRows').innerHTML=out.map(p=>`<tr><td>${esc(p.name)}</td><td>${pct(p.net)}</td><td>${fmt(p.balance)}</td><td>${fmt(p.real)}</td><td>${fmt(p.gain)}</td></tr>`).join('');let max=Math.max(...out.map(x=>x.real),1);$('bars').innerHTML=out.map(p=>`<div class="barrow"><span>${esc(p.name)}</span><div class="barbg"><div class="bar" style="width:${Math.max(0,p.real/max*100)}%"></div></div><strong>${fmt(p.real)}</strong></div>`).join('');$('compareInsight').textContent=`Con estos supuestos, ${out[0].name} termina con el mayor saldo nominal estimado. Los aportes se consideran al final de cada mes y la rentabilidad anual se convierte a una tasa mensual equivalente. La comparación no mide por sí sola riesgo, liquidez, garantías ni tratamiento tributario.`}
-function calculateAPV(){let age=num('edad'),retAge=num('edadJub');if(retAge<=age){$('apvYears').textContent='La edad objetivo debe ser mayor a la edad actual.';return}let years=Math.min(60,retAge-age),bal=num('saldoAPV'),monthly=num('aporteAPV'),gross=Number($('retornoAPV').value||0)/100,cost=num('costoAPV')/100,infl=Number($('inflacionAPV').value||0)/100,net=gross-cost,reg=$('regimen').value,bonusRate=num('bonif')/100,utm=num('utmAPV'),uf=num('ufAPV'),bonusCap=6*utm,taxRate=num('tasaMarginal')/100;let own=bal,bonusBalance=0,contributions=0,bonusesPaid=0;let r=Math.pow(1+net,1/12)-1;for(let m=1;m<=years*12;m++){own=own*(1+r)+monthly;bonusBalance=bonusBalance*(1+r);contributions+=monthly;if(reg==='A' && m%12===0){let bonus=Math.min(contributions*bonusRate,bonusCap);bonusBalance+=bonus;bonusesPaid+=bonus;contributions=0}else if(m%12===0){contributions=0}}let ownProjected=own, final=ownProjected+bonusBalance;let totalOwn=bal+monthly*years*12;let real=final/Math.pow(1+infl,years),annualContribution=monthly*12,annualEligibleB=Math.min(annualContribution,600*uf),benefitB=reg==='B'?annualEligibleB*taxRate:0;let nret=Math.max(1,num('aniosRetiro')*12),rr=Math.pow(1+Number($('retornoRetiro').value||0)/100,1/12)-1;let withdrawal=Math.abs(rr)<1e-9?final/nret:final*rr/(1-Math.pow(1+rr,-nret));let realMonthly=withdrawal/Math.pow(1+infl,years);$('apvFinal').textContent=fmt(final);$('apvYears').textContent=`${years} años de acumulación · rentabilidad neta supuesta ${pct(net)}`;$('apvReal').textContent=fmt(real);$('apvAportes').textContent=fmt(totalOwn);$('pensionMensual').textContent=fmt(withdrawal);$('pensionReal').textContent=fmt(realMonthly)+' en pesos de hoy';let earnings=Math.max(0,ownProjected-totalOwn+bonusBalance-bonusesPaid);$('apvBars').innerHTML=[['Saldo actual + aportes',Math.min(totalOwn,final)],['Bonificación A con crecimiento',Math.min(bonusBalance,final)],['Rentabilidad estimada',earnings]].map(x=>`<div class="barrow"><span>${x[0]}</span><div class="barbg"><div class="bar" style="width:${Math.max(0,x[1]/Math.max(final,1)*100)}%"></div></div><strong>${fmt(x[1])}</strong></div>`).join('');let taxNote=reg==='B'?`Ahorro tributario anual estimado: ${fmt(benefitB)}; aportes considerados hasta 600 UF/año.`:reg==='A'?`Bonificación estimada acumulada: ${fmt(bonusBalance)}; porcentaje ${pct(bonusRate)}, tope anual 6 UTM (${fmt(bonusCap)}).`:'No se modela beneficio tributario.';$('apvTable').innerHTML=[['Edad actual',age+' años'],['Edad objetivo',retAge+' años'],['Años de ahorro',years],['Rentabilidad anual bruta',pct(gross)],['Costo anual supuesto',pct(cost)],['Rentabilidad anual neta usada',pct(net)],['Inflación anual supuesta',pct(infl)],['Aportes futuros',fmt(monthly*years*12)],['Valor UF parametrizado',fmt(uf)],['Valor UTM parametrizado',fmt(utm)],['Bonificación / beneficio estimado',taxNote],['Saldo proyectado nominal',fmt(final)],['Saldo en pesos de hoy',fmt(real)],['Horizonte de retiro',num('aniosRetiro')+' años'],['Retiro mensual nominal estimado',fmt(withdrawal)],['Retiro mensual en pesos de hoy',fmt(realMonthly)]].map(x=>`<tr><td style="text-align:left">${x[0]}</td><td style="text-align:right;white-space:normal">${x[1]}</td></tr>`).join('');window.apvResult={age,retAge,years,bal,monthly,net,infl,final,real,totalContrib:totalOwn,bonuses:bonusBalance,bonusesPaid,withdrawal,realMonthly,reg,benefitB,uf,utm,taxRate}}
-document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x===b));['comparador','apv','previsional','costos','vistaCliente'].forEach(id=>$(id).classList.toggle('hidden',b.dataset.tab!==id))}));
-$('addProduct').addEventListener('click',()=>{if(products.length<6){products.push({name:'Nueva alternativa',rate:5,cost:0.5});renderProducts()}});
-$('runCompare').addEventListener('click',calculateCompare);$('runAPV').addEventListener('click',calculateAPV);
-function calculateVistaCliente(){
- const name=$('vcNombre').value.trim(),goal=$('vcObjetivo').value.trim()||'Construir un capital para el futuro';
- const initial=Math.max(0,Number($('vcCapital').value)||0),monthly=Math.max(0,Number($('vcAporte').value)||0),years=Math.min(60,Math.max(1,Number($('vcAnios').value)||1));
- const gross=Number($('vcRent').value||0)/100,cost=Math.max(0,Number($('vcCosto').value)||0)/100,infl=Math.max(0,Number($('vcInflacion').value)||0)/100,net=gross-cost;
- const final=future(initial,monthly,net,years),contributed=initial+monthly*years*12,real=final/Math.pow(1+infl,years),gain=final-contributed;
- $('vcTitulo').textContent=name?`Plan de ahorro para ${name}`:'Tu objetivo, convertido en un plan';
- $('vcSubtitulo').textContent=`Objetivo: ${goal}. Horizonte: ${years} años. Rentabilidad neta supuesta: ${pct(net)} anual.`;
- $('vcNominal').textContent=fmt(final);$('vcReal').textContent=fmt(real);$('vcAportes').textContent=fmt(contributed);$('vcGanancia').textContent=fmt(gain);
- const vals=[['Aportes propios',contributed],['Diferencia estimada',gain],['Capital final',final]],max=Math.max(final,1);
- $('vcBarras').innerHTML=vals.map(v=>`<div class="barrow"><span>${v[0]}</span><div class="barbg"><div class="bar" style="width:${Math.max(0,v[1]/max*100)}%"></div></div><strong>${fmt(v[1])}</strong></div>`).join('');
- $('vcLectura').textContent=`Con un ahorro de ${fmt(monthly)} al mes durante ${years} años, el escenario suma ${fmt(contributed)} de capital inicial y aportes. Bajo los supuestos indicados, el saldo futuro estimado sería ${fmt(final)}, equivalente a ${fmt(real)} en dinero de hoy. No es una promesa de rentabilidad ni incorpora todos los posibles impuestos, variaciones de costos o condiciones de póliza.`;
-}
-$('vcCalcular').addEventListener('click',calculateVistaCliente);$('vcImprimir').addEventListener('click',()=>{calculateVistaCliente();window.print()});
-['vcNombre','vcObjetivo','vcCapital','vcAporte','vcAnios','vcRent','vcInflacion','vcCosto'].forEach(id=>$(id).addEventListener('input',calculateVistaCliente));
-
-// Recalcular automáticamente cuando cambian supuestos o datos en Comparador y APV.
-['capital','aporte','anios','ipc'].forEach(id=>$(id).addEventListener('input',calculateCompare));
-['edad','edadJub','saldoAPV','aporteAPV','retornoAPV','costoAPV','inflacionAPV','regimen','bonif','utmAPV','ufAPV','tasaMarginal','aniosRetiro','retornoRetiro'].forEach(id=>{const el=$(id);if(el)el.addEventListener('input',calculateAPV);});
-$('products').addEventListener('input',calculateCompare);
-$('saveAPV').addEventListener('click',()=>{calculateAPV();if(!window.apvResult)return;let arr=JSON.parse(localStorage.getItem('motorAPVScenarios')||'[]');arr.push({...window.apvResult,savedAt:new Date().toISOString()});localStorage.setItem('motorAPVScenarios',JSON.stringify(arr));alert('Escenario guardado en este dispositivo. No se comparte ni se sincroniza automáticamente.')});
-$('exportAPV').addEventListener('click',()=>{calculateAPV();if(!window.apvResult)return;let r=window.apvResult,rows=[['Indicador','Valor'],['Edad actual',r.age],['Edad objetivo',r.retAge],['Años de ahorro',r.years],['Saldo actual',r.bal],['Aporte mensual',r.monthly],['Rentabilidad neta',r.net],['Saldo final nominal',Math.round(r.final)],['Saldo real',Math.round(r.real)],['Aportes propios',Math.round(r.totalContrib)],['Bonificación estimada con crecimiento',Math.round(r.bonuses)],['Bonificación aportada sin crecimiento',Math.round(r.bonusesPaid||0)],['Retiro mensual nominal',Math.round(r.withdrawal)],['Retiro mensual real',Math.round(r.realMonthly)],['Régimen',r.reg],['Beneficio tributario B anual estimado',Math.round(r.benefitB)],['Valor UF',r.uf],['Valor UTM',r.utm]];let csv=rows.map(row=>row.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(';')).join('\n');let blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='proyeccion_apv.csv';a.click();URL.revokeObjectURL(url)});
-
-const ADN_FACTORS={"f1":[[1,1.05,1.03,1.02],[2,1.1,1.06,1.04],[3,1.15,1.09,1.05],[4,1.2,1.13,1.06],[5,1.26,1.16,1.1],[6,1.32,1.2,1.13],[7,1.38,1.23,1.15],[8,1.44,1.27,1.17],[9,1.51,1.31,1.2],[10,1.58,1.35,1.22],[11,1.66,1.39,1.24],[12,1.74,1.43,1.27],[13,1.82,1.48,1.29],[14,1.9,1.52,1.32],[15,1.99,1.57,1.35],[16,2.09,1.62,1.37],[17,2.18,1.67,1.4],[18,2.29,1.72,1.43],[19,2.39,1.77,1.46],[20,2.51,1.82,1.49],[21,2.62,1.88,1.52],[22,2.75,1.94,1.55],[23,2.88,2.0,1.58],[24,3.01,2.06,1.61],[25,3.15,2.12,1.64],[26,3.3,2.18,1.67],[27,3.46,2.25,1.71],[28,3.62,2.32,1.74],[29,3.79,2.39,1.78],[30,3.97,2.46,1.81],[31,4.15,2.54,1.85],[32,4.35,2.62,1.88],[33,4.55,2.7,1.92],[34,4.77,2.78,1.96],[35,4.99,2.86,2.0],[36,5.22,2.95,2.04],[37,5.47,3.04,2.08],[38,5.73,3.13,2.12],[39,6.0,3.23,2.16],[40,6.28,3.33,2.21],[41,6.57,3.43,2.25],[42,6.88,3.53,2.3],[43,7.21,3.64,2.34],[44,7.54,3.75,2.39],[45,7.9,3.87,2.44],[46,8.27,3.98,2.49]],"f2":[[1,12.0,12.0,12.0],[2,26.0,25.0,24.0],[3,40.0,33.0,37.0],[4,54.0,52.0,50.0],[5,70.0,67.0,53.0],[6,87.0,82.0,76.0],[7,105.0,98.0,90.0],[8,124.0,115.0,104.0],[9,145.0,132.0,118.0],[10,167.0,150.0,133.0],[11,190.0,169.0,147.0],[12,215.0,189.0,162.0],[13,241.0,210.0,178.0],[14,269.0,232.0,193.0],[15,299.0,255.0,209.0],[16,331.0,278.0,226.0],[17,364.0,303.0,242.0],[18,400.0,329.0,259.0],[19,439.0,336.0,277.0],[20,480.0,384.0,294.0],[21,523.0,414.0,312.0],[22,570.0,445.0,331.0],[23,619.0,477.0,349.0],[24,671.0,511.0,368.0],[25,727.0,546.0,388.0],[26,787.0,583.0,408.0],[27,851.0,621.0,428.0],[28,918.0,661.0,449.0],[29,990.0,703.0,470.0],[30,1057.0,747.0,491.0],[31,1149.0,793.0,513.0],[32,1236.0,841.0,536.0],[33,1328.0,891.0,558.0],[34,1427.0,943.0,582.0],[35,1532.0,998.0,606.0],[36,1644.0,1055.0,630.0],[37,1763.0,1115.0,654.0],[38,1890.0,1177.0,680.0],[39,2025.0,1242.0,705.0],[40,2470.0,1311.0,731.0],[41,2323.0,1382.0,758.0],[42,2486.0,1456.0,785.0],[43,2660.0,1534.0,813.0],[44,2846.0,1615.0,842.0],[45,3043.0,1700.0,871.0],[46,3253.0,1789.0,900.0]],"f3":[[50,280.0,311.0,310.0,320.0],[55,251.0,285.0,284.0,294.0],[60,220.0,255.0,255.0,255.0],[65,188.0,225.0,224.0,235.0],[70,156.0,193.0,191.0,202.0],[75,124.0,160.0,157.0,168.0]]};
-const profileIndex=()=>Number($('adnPerfil').value);
-function factorRow(rows,years){return rows.find(r=>r[0]===years)||null}
-function calculateADN(){
- const age=Number($('adnEdad').value),retAge=Number($('adnRetiro').value),years=retAge-age,sex=Number($('adnSexo').value),profile=profileIndex(),uf=Number($('adnUF').value),income=Number($('adnRenta').value),afp=Number($('adnAFP').value),apv=Number($('adnAPV').value),target=Number($('adnDeseada').value);
- const fail=msg=>{$('adnAviso').textContent=msg;$('adnPension').textContent='—';$('adnBrecha').textContent='—';$('adnAporte').textContent='—';$('adnAnios').textContent=Number.isFinite(years)?years+' años':'—';};
- if(!Number.isInteger(years)||years<1||years>46){fail('No hay un Factor 1/2 exacto para este plazo. La tabla fuente cubre años enteros de 1 a 46. No se interpoló ni extrapoló.');return}
- const f1=factorRow(ADN_FACTORS.f1,years),f2=factorRow(ADN_FACTORS.f2,years),f3row=ADN_FACTORS.f3.find(r=>r[0]===retAge);
- if(!f1||!f2||!f3row){fail('No existe coincidencia exacta en las tablas de origen para estos parámetros.');return}
- const factor1=f1[profile],factor2=f2[profile],factor3=f3row[sex];
- if(![factor1,factor2,factor3].every(v=>typeof v==='number'&&v>0)){fail('La tabla no contiene un factor válido para esta combinación.');return}
- // Reproducción explícita de las fórmulas de la hoja PENSIÓN del libro fuente.
- const accumulated=(afp+apv)*factor1;
- const contribution=income*1.23*0.10;
- const futureContribution=contribution*factor2;
- const projected=(accumulated+futureContribution)/factor3;
- const gap=target-projected;
- const requiredCapital=Math.max(0,gap)*factor3;
- const monthlyRequired=requiredCapital/factor2;
- $('adnPension').textContent=fmt(projected);$('adnBrecha').textContent=fmt(gap);$('adnAporte').textContent=fmt(monthlyRequired);$('adnAnios').textContent=years+' años';
- const rows=[['Factor 1',factor1.toLocaleString('es-CL'),`FACTORES · ${years} años · perfil seleccionado`],['Factor 2',factor2.toLocaleString('es-CL'),`FACTORES · ${years} años · perfil seleccionado`],['Factor 3',factor3.toLocaleString('es-CL'),`FACTORES · edad ${retAge} · categoría seleccionada`],['Saldo AFP + APV',fmt(afp+apv),'Datos ingresados'],['Saldo acumulado ajustado por Factor 1',fmt(accumulated),'Fórmula PENSIÓN!B16'],['Cotización base mensual modelada',fmt(contribution),'Renta líquida × 1,23 × 10%'],['Cotización base ajustada por Factor 2',fmt(futureContribution),'Fórmula PENSIÓN!B21'],['Capital necesario para cerrar brecha',fmt(requiredCapital),'Brecha positiva × Factor 3'],['Aporte mensual estimado',fmt(monthlyRequired),'Capital necesario ÷ Factor 2']];
- $('adnDetalle').innerHTML=rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td style="text-align:left">${r[2]}</td></tr>`).join('');
- const issues=[];if(years>=40)issues.push('El plazo seleccionado usa una zona donde Factor 2 presenta saltos/discontinuidades en el archivo original.');if(target<projected)issues.push('La pensión modelada ya supera la meta; el aporte adicional se muestra como $0.');if(age<18||age>100)issues.push('Revisa la edad ingresada.');
- $('adnAviso').textContent='Modelo reproducido desde las fórmulas de APV ADN.xlsx, hoja PENSIÓN. '+(issues.length?issues.join(' '):'No se aplicó interpolación de factores. ')+' Es un modelo histórico interno para contraste, no una estimación actuarial certificada ni una cotización de pensión.';
- window.adnResult={age,retAge,years,sex,profile,uf,income,afp,apv,target,factor1,factor2,factor3,projected,gap,monthlyRequired,accumulated,futureContribution};
-}
-$('runADN').addEventListener('click',calculateADN);
-$('exportADN').addEventListener('click',()=>{calculateADN();if(!window.adnResult)return;const r=window.adnResult;const rows=[['Indicador','Valor'],['Edad actual',r.age],['Edad objetivo',r.retAge],['Años restantes',r.years],['Sexo/categoría factor 3',r.sex],['Perfil',r.profile],['Saldo AFP',r.afp],['Saldo APV',r.apv],['Factor 1',r.factor1],['Factor 2',r.factor2],['Factor 3',r.factor3],['Pensión modelada',Math.round(r.projected)],['Brecha',Math.round(r.gap)],['Aporte mensual estimado',Math.round(r.monthlyRequired)]];const csv=rows.map(row=>row.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(';')).join('\n');const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='modelo_previsional_adn.csv';a.click();URL.revokeObjectURL(url)});
-
-
-// Tabla CC_Fall transcrita del PDF de costos; orden por edad y pares Hombre/Mujer para cada producto.
-const COST_COVERAGE_RATES=[[18,0.164976,0.056877,0.152285,0.052502,0.121828,0.042001,0.152286,0.052502,0.126905,0.043752],[19,0.165622,0.059314,0.152882,0.054751,0.122305,0.043801,0.152882,0.054751,0.127402,0.045626],[20,0.16636,0.06193,0.153563,0.057166,0.122851,0.045733,0.153563,0.057166,0.12797,0.047638],[21,0.167204,0.064737,0.154342,0.059758,0.123474,0.047806,0.154342,0.059758,0.128618,0.049798],[22,0.168167,0.067751,0.155231,0.062539,0.124185,0.050031,0.155231,0.062539,0.129359,0.052116],[23,0.169268,0.070985,0.156247,0.065525,0.124998,0.05242,0.156247,0.065525,0.130206,0.054604],[24,0.170526,0.074458,0.157408,0.06873,0.125927,0.054984,0.157408,0.06873,0.131174,0.057275],[25,0.171963,0.078183,0.158735,0.072169,0.126988,0.057735,0.158735,0.072169,0.132279,0.060141],[26,0.173605,0.082183,0.16025,0.075862,0.1282,0.060689,0.16025,0.075861,0.133542,0.063218],[27,0.17548,0.086476,0.161981,0.079824,0.129585,0.063859,0.161982,0.079824,0.134985,0.06652],[28,0.177623,0.091084,0.16396,0.084077,0.131168,0.067262,0.16396,0.084077,0.136633,0.070065],[29,0.180071,0.09603,0.16622,0.088643,0.132976,0.070914,0.16622,0.088643,0.138516,0.073869],[30,0.182868,0.101338,0.168802,0.093542,0.135041,0.074834,0.168802,0.093543,0.140668,0.077952],[31,0.186064,0.107035,0.171751,0.098801,0.137401,0.079041,0.171751,0.098802,0.143126,0.082335],[32,0.189715,0.11315,0.175121,0.104446,0.140097,0.083557,0.175122,0.104446,0.145935,0.087039],[33,0.193886,0.119714,0.178972,0.110505,0.143177,0.088404,0.178972,0.110505,0.149143,0.092087],[34,0.198652,0.126758,0.183371,0.117008,0.146697,0.093606,0.183371,0.117008,0.152809,0.097506],[35,0.204096,0.134319,0.188396,0.123987,0.150717,0.09919,0.188396,0.123987,0.156997,0.103322],[36,0.210316,0.142434,0.194138,0.131477,0.15531,0.105182,0.194138,0.131478,0.161781,0.109565],[37,0.217422,0.151144,0.200697,0.139517,0.160558,0.111614,0.200697,0.139517,0.167247,0.116265],[38,0.22554,0.160492,0.20819,0.148147,0.166552,0.118517,0.20819,0.148146,0.173492,0.123455],[39,0.234814,0.170525,0.216751,0.157408,0.173401,0.125926,0.216751,0.157408,0.180626,0.131173],[40,0.245408,0.181293,0.226531,0.167348,0.181224,0.133878,0.226531,0.167348,0.188776,0.139456],[41,0.257512,0.19285,0.237703,0.178016,0.190163,0.142413,0.237703,0.178016,0.198086,0.148346],[42,0.271339,0.205254,0.250466,0.189465,0.200373,0.151572,0.250467,0.189465,0.208722,0.157888],[43,0.287134,0.218566,0.265047,0.201753,0.212038,0.161402,0.265047,0.201753,0.220872,0.168128],[44,0.305178,0.232853,0.281702,0.214942,0.225362,0.171953,0.281702,0.214941,0.234752,0.179118],[45,0.325789,0.248186,0.300728,0.229095,0.240583,0.183276,0.300728,0.229095,0.250607,0.190913],[46,0.349333,0.264642,0.322461,0.244285,0.257969,0.195428,0.322461,0.244285,0.268718,0.203571],[47,0.376226,0.282303,0.347285,0.260587,0.277828,0.20847,0.347285,0.260587,0.289405,0.217156],[48,0.406944,0.301256,0.37564,0.278082,0.300512,0.222466,0.37564,0.278082,0.313033,0.231735],[49,0.442028,0.321596,0.408026,0.296858,0.326421,0.237486,0.408026,0.296858,0.340021,0.247381],[50,0.482093,0.343422,0.445009,0.317005,0.356007,0.253604,0.445009,0.317005,0.370841,0.264171],[51,0.534264,0.367386,0.493167,0.339125,0.394534,0.2713,0.493167,0.339125,0.410973,0.282605],[52,0.591563,0.394072,0.546058,0.363758,0.436847,0.291007,0.546058,0.363758,0.455048,0.303132],[53,0.654489,0.423788,0.604144,0.391189,0.483315,0.312951,0.604144,0.391189,0.503453,0.325991],[54,0.723592,0.456879,0.667931,0.421734,0.534345,0.337387,0.667931,0.421734,0.556609,0.351445],[55,0.799474,0.493724,0.737976,0.455746,0.590381,0.364596,0.737976,0.455746,0.61498,0.379788],[56,0.882794,0.534751,0.814887,0.493616,0.65191,0.394893,0.814887,0.493616,0.679072,0.411347],[57,0.974274,0.580431,0.89933,0.535782,0.719464,0.428626,0.89933,0.535782,0.749442,0.446485],[58,1.074706,0.631288,0.992036,0.582727,0.793629,0.466182,0.992036,0.582727,0.826697,0.485606],[59,1.184956,0.687908,1.093805,0.634992,0.875044,0.507994,1.093805,0.634992,0.911504,0.52916],[60,1.305971,0.75094,1.205512,0.693175,0.964409,0.55454,1.205512,0.693175,1.004593,0.577646],[61,1.438789,0.821105,1.328113,0.757943,1.06249,0.606355,1.328113,0.757943,1.106761,0.63162],[62,1.584544,0.899206,1.462656,0.830036,1.170125,0.664029,1.462656,0.830036,1.21888,0.691697],[63,1.744475,0.986132,1.610285,0.910276,1.288228,0.72822,1.610285,0.910276,1.341904,0.758563],[64,1.919937,1.082873,1.772249,0.999575,1.4178,0.79966,1.77225,0.999575,1.476875,0.832979],[65,2.112408,1.190526,1.949915,1.098947,1.559932,0.879158,1.949915,1.098947,1.624929,0.91579],[66,2.323499,1.31031,2.144768,1.209517,1.715815,0.967613,2.144768,1.209517,1.787307,1.007931],[67,2.55497,1.443575,2.358434,1.33253,1.886747,1.066024,2.358434,1.33253,1.965361,1.110442],[68,2.808735,1.591817,2.592679,1.469369,2.074143,1.175496,2.592679,1.46937,2.160566,1.224475],[69,3.086879,1.756697,2.849427,1.621567,2.279542,1.297253,2.849427,1.621566,2.374522,1.351305],[70,3.391668,1.94005,3.130771,1.790815,2.504616,1.432652,3.13077,1.790815,2.608975,1.492346],[71,3.725563,2.143909,3.438981,1.978993,2.751185,1.583194,3.438981,1.978992,2.865817,1.64916],[72,4.091233,2.370519,3.776522,2.188171,3.021218,1.750537,3.776522,2.188171,3.147102,1.823476],[73,4.491569,2.622361,4.146064,2.420641,3.316851,1.936513,4.146064,2.420641,3.455053,2.017201],[74,4.9297,2.902175,4.550492,2.67893,3.640394,2.143144,4.550492,2.67893,3.792077,2.232442],[75,5.409002,3.212975,4.992925,2.965823,3.99434,2.372659,4.992925,2.965824,4.160771,2.47152],[76,5.933114,3.558086,5.47672,3.284387,4.381376,2.62751,5.47672,3.284387,4.563933,2.736989],[77,6.505948,3.941157,6.005491,3.637991,4.804392,2.910393,6.00549,3.637991,5.004575,3.031659],[78,7.131704,4.366196,6.583111,4.030335,5.266489,3.224268,6.583111,4.030335,5.485926,3.358613],[79,7.814872,4.837594,7.213728,4.465471,5.770982,3.572377,7.213728,4.465471,6.01144,3.721226],[80,8.560244,5.360149,7.901764,4.94783,6.321411,3.958264,7.901763,4.94783,6.584803,4.123192],[81,9.372912,5.939097,8.651918,5.482244,6.921535,4.385795,8.651918,5.482244,7.209932,4.568536],[82,10.258268,6.580133,9.46917,6.073969,7.575336,4.859175,9.46917,6.073969,7.890975,5.061641],[83,11.221997,7.289435,10.358766,6.728709,8.287013,5.382967,10.358766,6.728709,8.632305,5.607257],[84,12.270057,8.073678,11.326207,7.452626,9.060965,5.962101,11.326207,7.452626,9.438506,6.210522],[85,13.408664,8.940052,12.377228,8.252356,9.901783,6.601884,12.377228,8.252356,10.314357,6.876963],[86,14.644248,9.896261,13.517767,9.13501,10.814214,7.308008,13.517767,9.13501,11.264806,7.612508],[87,15.983411,10.950519,14.753918,10.108171,11.803134,8.086537,14.753918,10.108171,12.294932,8.423476],[88,17.432867,12.111527,16.091878,11.179871,12.873502,8.943897,16.091878,11.179871,13.409898,9.316559],[89,18.99936,13.388441,17.53787,12.358561,14.030296,9.886848,17.53787,12.35856,14.614892,10.2988],[90,20.689562,14.790805,19.098058,13.65305,15.278446,10.92244,19.098058,13.653051,15.915048,11.377542],[91,22.509963,16.328472,20.778427,15.072436,16.622742,12.057948,20.778427,15.072435,17.315356,12.560363],[92,24.46671,18.011479,22.584655,16.625981,18.067724,13.300785,22.584655,16.625981,18.820546,13.854984],[93,26.565444,19.849896,24.521948,18.322981,19.617559,14.658385,24.521948,18.322981,20.434957,15.269151],[94,28.811092,21.853618,26.594854,20.172571,21.275883,16.138056,26.594854,20.17257,22.162379,16.810475],[95,31.207633,24.032112,28.807046,22.183488,23.045637,17.74679,28.807046,22.183488,24.005872,18.48624],[96,33.757833,26.394107,31.161077,24.363791,24.928861,19.491033,31.161077,24.363791,25.967564,20.303159],[97,36.462951,28.947211,33.658108,26.720503,26.926487,21.376402,33.658108,26.720502,28.048423,22.267085],[98,39.322411,31.697472,36.29761,29.259205,29.038088,23.407364,36.29761,29.259204,30.248009,24.38267],[99,42.333468,34.648856,39.077048,31.983559,31.261638,25.586847,39.077048,31.983559,32.564206,26.652966],[100,45.490845,37.802671,41.991549,34.894773,33.593239,27.915818,41.991549,34.894773,34.992957,29.078978]];
-function calculateCostos(){
- const age=Number($('cEdad').value),sex=Number($('cSexo').value),prod=Number($('cProducto').value),capitalRiskUF=Math.max(0,Number($('cCapital').value)||0),uf=Math.max(0,Number($('cUF').value)||0),payment=Math.max(0,Number($('cPrima').value)||0),adminUF=Math.max(0,Number($('cAdm').value)||0),other=Math.max(0,Number($('cCargo').value)||0),premiumPct=Math.max(0,Number($('cPrimaCoste').value)||0);
- const row=COST_COVERAGE_RATES.find(r=>r[0]===age);
- if(!row||age<18||age>100){ $('cAviso').textContent='La tabla fuente no contiene una tasa para esa edad. No se extrapoló.'; return null; }
- const rate=row[1+prod*2+sex];
- // Fórmula general de la Ficha Técnica APV: capital asegurado en riesgo × tasa / 1.000. Capital en UF; se convierte a pesos con el valor UF.
- const coverageUF=capitalRiskUF*rate/1000, coverage=coverageUF*uf, admin=adminUF*uf, premiumCharge=payment*premiumPct/100, total=coverage+admin+other+premiumCharge, saving=payment-total;
- $('cOutCobertura').textContent=fmt(coverage);$('cOutTasa').textContent=`Tasa fuente: ${rate.toLocaleString('es-CL',{maximumFractionDigits:6})} o/oo`;
- $('cOutTotal').textContent=fmt(total);$('cOutAhorro').textContent=fmt(saving);$('cOutPct').textContent=payment>0?pct(saving/payment*100):'—';
- const lines=[['Costo cobertura',coverage,'Ficha Técnica APV: CR × TC / 1.000; convertido desde UF'],['Administración',admin,'Dato editable en UF'],['Otros cargos',other,'Dato editable'],['Costo sobre prima',premiumCharge,'Porcentaje editable'],['Costo total modelado',total,'Suma de los conceptos anteriores'],['Pago mensual del cliente',payment,'Dato ingresado'],['Monto estimado para ahorro',saving,'Pago menos costos modelados']];
- $('cRows').innerHTML=lines.map(x=>`<tr><td style="text-align:left">${x[0]}</td><td>${fmt(x[1])}</td><td style="text-align:left">${x[2]}</td></tr>`).join('');
- $('cAviso').textContent=saving<0?'Advertencia: los costos modelados superan el pago mensual. Revisa el capital en riesgo, el pago y los cargos ingresados.':`Fórmula de ficha técnica aplicada. Costo cobertura: ${coverageUF.toFixed(6)} UF = ${fmt(coverage)}. Sigue pendiente conciliar con el ejemplo PDF de $18.157; este cálculo no es cotización oficial.`;
- window.costosResult={age,sex,prod,capitalRiskUF,uf,payment,adminUF,other,premiumPct,rate,coverageUF,coverage,admin,premiumCharge,total,saving};return window.costosResult;
-}
-$('runCostos').addEventListener('click',calculateCostos);
-$('exportCostos').addEventListener('click',()=>{const r=calculateCostos();if(!r)return;const labels=['Edad','Sexo (0 hombre, 1 mujer)','Producto índice','Capital asegurado en riesgo (UF)','Valor UF','Pago mensual','Administración UF','Otros cargos','Costo sobre prima %','Tasa cobertura o/oo mensual','Costo cobertura','Costo administración','Costo sobre prima','Costo total modelado','Monto estimado para ahorro'];const vals=[r.age,r.sex,r.prod,r.capitalRiskUF,r.uf,r.payment,r.adminUF,r.other,r.premiumPct,r.rate,r.coverage,r.admin,r.premiumCharge,r.total,r.saving];const csv=[['Indicador','Valor'],...labels.map((x,i)=>[x,vals[i]])].map(row=>row.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(';')).join('\n');const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='costos_apv_metlife.csv';a.click();URL.revokeObjectURL(url);});
-
-renderProducts();calculateCompare();calculateAPV();calculateADN();calculateCostos();calculateVistaCliente();
+const $=id=>document.getElementById(id);const money=n=>new Intl.NumberFormat('es-CL',{style:'currency',currency:'CLP',maximumFractionDigits:0}).format(Number.isFinite(n)?n:0);const number=id=>Number($(id).value)||0;const ufFmt=n=>Number(n).toLocaleString('es-CL',{maximumFractionDigits:2})+' UF';const pct=n=>Number(n).toLocaleString('es-CL',{maximumFractionDigits:1})+'%';
+function calc(){const name=$('nombre').value.trim(),product=$('producto').value,age=Math.max(18,number('edad')),years=Math.max(1,Math.min(60,number('plazo'))),monthly=Math.max(0,number('aporte')),initial=Math.max(0,number('inicial')),gross=number('rent')/100,cost=Math.max(0,number('costo'))/100,infl=Math.max(0,number('inflacion'))/100,net=gross-cost,months=years*12,monthlyRate=Math.pow(Math.max(0.000001,1+net),1/12)-1;let balance=initial;for(let i=0;i<months;i++)balance=balance*(1+monthlyRate)+monthly;const contrib=initial+monthly*months,real=balance/Math.pow(1+infl,years),gain=balance-contrib,uf=Math.max(1,number('uf')),basic=Math.max(0,number('prima')),capital=Math.max(0,number('capitalUF'));const productNames={'APV':'APV Vida y Jubilación Protegida · SVT-172','VUL Integral':'Protección Integral · Vida, Salud y Ahorro (VUL) · SVT-191','VUL Flexible':'Seguro de vida con ahorro · VUL Flexible'};const productTag={'APV':'APV · VIDA Y JUBILACIÓN PROTEGIDA','VUL Integral':'PROTECCIÓN INTEGRAL · VUL','VUL Flexible':'VUL · VIDA Y AHORRO'};$('titulo').textContent=name?'Proyección para '+name:'Proyección de ahorro personalizada';$('linea').textContent=`Edad actual ${age} años · horizonte ${years} años · escenario ilustrativo`;$('tag').textContent=productTag[product];$('final').textContent=money(balance);$('finalSub').textContent=`Capital estimado a los ${age+years} años, con rentabilidad neta supuesta de ${pct((net)*100)} anual.`;$('real').textContent=money(real);$('aportes').textContent=money(contrib);$('ganancia').textContent=money(gain);$('pago').textContent=money(monthly);$('detalleProducto').textContent=productNames[product];$('detallePlazo').textContent=years+' años';$('detallePrima').textContent=ufFmt(basic)+' / mes · aprox. '+money(basic*uf);$('detalleCapital').textContent=ufFmt(capital);$('detalleRent').textContent=pct(gross*100);$('detalleInflacion').textContent=pct(infl*100);$('detalleCosto').textContent=pct(cost*100)+' anual supuesto';$('ficha').classList.add('result-ready');$('ficha').scrollIntoView({behavior:'smooth',block:'start'});window.lastProjection={product,age,years,balance,real,contrib,gain};}
+$('calcular').addEventListener('click',calc);$('captura').addEventListener('click',()=>{calc();setTimeout(()=>alert('La ficha está lista. En iPhone, toma una captura con el botón lateral + subir volumen y compártela por WhatsApp.'),350)});calc();
 </script>
 </body></html>
